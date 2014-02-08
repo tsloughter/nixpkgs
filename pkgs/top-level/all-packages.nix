@@ -3111,6 +3111,15 @@ let
 
   rebar = callPackage ../development/tools/build-managers/rebar { };
 
+  erlangPackages = recurseIntoAttrs (import ./erlang-packages.nix {
+    inherit pkgs;
+    erlang = erlang;
+  });
+
+  buildErlangPackage = erlangPackages.buildErlangPackage;
+
+  heroku_crashdumps = erlangPackages.heroku_crashdumps;
+
   elixir = callPackage ../development/interpreters/elixir { };
 
   groovy = callPackage ../development/interpreters/groovy { };
