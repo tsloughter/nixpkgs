@@ -25,6 +25,21 @@ rec {
     };
   };
 
+  lager = buildErlangPackage {
+    name = "lager-2.0.2";
+    src = fetchurl {
+      url = https://github.com/basho/lager/archive/2.0.2.tar.gz;
+      sha256 = "24767afb0072f78c267f6d1c9fbe61d69ea3103c3bdb371454e8e06acf7d841c";
+    };
+
+    buildInputs = [ goldrush ];
+
+    meta = {
+      description = "A logging framework for Erlang/OTP";
+      license = "Apache";
+    };
+  };
+
   heroku_crashdumps = buildErlangPackage {
     name = "heroku_crashdumps-0.1.0";
     src = fetchurl {
