@@ -1,11 +1,11 @@
 { stdenv, fetchurl, erlang }:
 
 stdenv.mkDerivation {
-  name = "rebar-2.1.0-pre";
+  name = "rebar-2.2";
 
   src = fetchurl {
-    url = "https://github.com/basho/rebar/archive/2.1.0-pre.tar.gz";
-    sha256 = "0dsbk9ssvk1hx9275900dg4bz79kpwcid4gsz09ziiwzv0jjbrjn";
+    url = "https://github.com/tsloughter/rebar/archive/skip_deps.tar.gz";
+    sha256 = "1d00742cf5dea24692928f9755ecc783d8c1d6e444a9b1d25c604ae0bfc5fd7a";
   };
 
   buildInputs = [ erlang ];

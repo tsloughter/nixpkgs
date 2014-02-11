@@ -10,9 +10,13 @@ erlang.stdenv.mkDerivation ({
 
   buildInputs = [ rebar ] ++ buildInputs;
 
+  buildPhase = ''
+    rebar compile skip_deps=true
+  '';
+
   installPhase = ''
     runHook preInstall
-    echo "$name"
+
     mkdir -p "$out/lib/erlang/lib/$name"
 
     echo "installing ${name}..."
